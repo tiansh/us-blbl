@@ -1,3 +1,7 @@
+# Replace bilibili Bofqi #
+
+见 http://github.com/tiansh/rbb
+
 # bilibili Show Pages #
 
 在 bilibili 上，鼠标长按视频链接显示视频各分页的链接，方便直接打开想要的分页。（本脚本包含于 Replace bilibili bofqi ）
