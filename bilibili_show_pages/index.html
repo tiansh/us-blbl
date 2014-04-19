@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <title>Bilibili Show Pages</title>
+  <meta name="keywords" content="bilibili, 哔哩哔哩, 分页, 分P" />
+  <meta name="description" content=" 在 bilibili 上，鼠标长按视频链接显示视频各分页的链接，方便直接打开想要的分页。" />
+  <style>
+    html, body {
+      font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 24px;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f0f0f0;
+    }
+
+    #main-body {
+      width: 960px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding: 0;
+      font-size: 100%;
+      font-weight: normal;
+    }
+
+    a, a:hover, a:active, a:visited {
+      text-decoration: none;
+      color: #f25d8e;
+      outline: none;
+    }
+
+      a img {
+        border: none;
+      }
+
+    h1 {
+      color: #D95E7F;
+      font-size: 40px;
+      line-height: 60px;
+      margin: 40px 0 20px 0;
+      padding: 0;
+      font-weight: bold;
+    }
+
+    header {
+      display: block;
+      height: 200px;
+    }
+
+      header li {
+        list-style: none;
+      }
+
+    #intro {
+      border: 2px solid #F25D8E;
+      float: left;
+      height: 120px;
+      line-height: 30px;
+      font-size: 20px;
+      padding: 18px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      margin-left: 30px;
+      color: #333;
+    }
+
+      #intro strong {
+        color: #000;
+        font-weight: normal;
+      }
+
+    #side-buttons {
+      width: 400px;
+      height: 160px;
+      float: right;
+      padding: 0;
+      text-align: right;
+      margin-right: 30px;
+    }
+
+    #install {
+      background: #F25D8E;
+      color: #fff;
+      font-size: 32px;
+      line-height: 50px;
+      padding: 10px 50px;
+      width: 300px;
+      clear: both;
+      display: block;
+      float: right;
+      text-align: center;
+    }
+
+      #install:hover {
+        background: #f32b6d;
+      }
+
+    #report {
+      float: right;
+      width: 100%;
+      height: 70px;
+      padding: 20px 0 0;
+      display: block;
+      font-size: 16px;
+    }
+
+    #report1, #report2 {
+      height: 80px;
+      width: 48%;
+      display: block;
+    }
+
+    #report1 {
+      float: left;
+    }
+
+    #report2 {
+      float: right;
+    }
+
+    #report a {
+      width: 100%;
+      background: #e1e1e1;
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      color: #aaa;
+      text-align: center;
+    }
+
+      #report a:hover {
+        background: #fdb4c8;
+        color: #fff;
+      }
+
+    #report span {
+      width: 100%;
+      text-align: center;
+      display: block;
+      line-height: 30px;
+      color: #aaa;
+    }
+
+    #install_instruct h3 {
+      margin;
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 2px #ccc solid;
+      padding: 10px 20px;
+      margin: 20px 0 10px;
+    }
+
+      h3::before {
+        background: #f32b6d;
+        content: "";
+        display: block;
+        float: left;
+        height: 20px;
+        left: -20px;
+        position: relative;
+        width: 10px;
+      }
+
+    .browser {
+      width: 840px;
+      padding: 10px 20px 10px 100px;
+      position: relative;
+      min-height: 100px;
+    }
+
+    .browser-icon {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
+
+    .warning {
+      color: red;
+      font-weight: bold;
+    }
+
+    .in {
+      padding: 5px 2em;
+      border: 4px;
+    }
+
+    .p {
+      margin: 0.5em 0;
+    }
+
+    ul {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="main-body">
+    <h1>Replace bilibili bofqi</h1>
+    <header>
+      <div id="intro">
+        鼠标长按视频链接<br />
+        给出视频各分页的链接<br />
+        方便直接打开想要的分页
+      </div>
+      <div id="side-buttons">
+        <a id="install" href="bilibili_show_pages.user.js">安装脚本</a>
+        <div id="report">
+          <div id="report1">
+            <a href="https://github.com/tiansh/us-blbl/issues" target="_blank">报告Bug</a>
+            <span>在github上报告错误</span>
+          </div>
+          <div id="report2">
+            <a href="http://member.bilibili.tv/#msg&amp;act=new&amp;mid=1378109" target="_blank">私信我</a>
+            <span>在bilibili上私信作者</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <h3>关于</h3>
+    <div class="in">
+      <div class="p">脚本使用 GNU GPL v3 和 CC BY-SA 3.0 协议发布。</div>
+      <div class="p">我的B站ID：<a href="http://space.bilibili.tv/1378109/list.html">ts9(1378109)</a></div>
+    </div>
+    <h1>bilibili Show Pages</h1>
+    <h2>在 bilibili 上，鼠标长按视频链接显示视频各分页的链接，方便直接打开想要的分页。</h2>
+    <p>我的B站ID：<a href="http://space.bilibili.tv/1378109">ts9(1378109)</a></p>
+
+    <h3>功能</h3>
+    <div class="in">
+      <p>
+        想要看某个视频的特定分页，却不想点进去第一分页后再切到后面的分页？这个脚本可以显示一个选择分页的菜单，供你直接进入想要的分页。<br />
+        在视频链接上长按鼠标，会显示一个包括该视频分页信息的菜单。菜单标题为直接点击链接后指向的分页，下方为该视频的所有分页。<br />
+        本脚本是 <a href="http://tiansh.github.io/rbb/">Replace bilibili bofqi</a> 的一部分（去除了恢复原站播放器等功能），如果安装了该脚本请勿再安装本脚本，否则可能发生冲突。<br />
+        如果你使用其他恢复播放器的脚本则可以考虑使用本脚本。<br />
+        注意：本脚本<strong>不支持</strong>直接跳转到外站（如乐视）的视频。<br />
+        已知问题：在用户空间的页面，如果用户自定义了空间样式，可能会显示不正常。
+      </p>
+    </div>
+
+    <h3>浏览器兼容性</h3>
+    <div class="in">
+      <p>
+        本脚本可以在以下浏览器上运行：<br />
+        <strong><a href="http://www.mozilla.org/en-US/firefox/all/#zh-CN">Firefox浏览器</a> + <a href="https://addons.mozilla.org/zh-CN/firefox/addon/greasemonkey/">GreaseMonkey附加组件</a> （建议）</strong><br />
+        <a href="https://www.google.com/intl/zh-CN/chrome/browser/?standalone=1">Chrome浏览器</a> + <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">TamperMonkey扩展程序</a><br />
+        <a href="http://www.opera.com/zh-cn">Opera浏览器</a> + <a href="https://addons.opera.com/zh-cn/extensions/details/tampermonkey-beta/">TamperMonkey Beta扩展</a><br />
+        具体的脚本兼容性请参考 <a href="http://tiansh.github.io/rbb/">Replace bilibili bofqi</a> 脚本关于浏览器兼容性的介绍。
+      </p>
+    </div>
+
+
+    <h3>权限与隐私</h3>
+    <div class="in">
+      <p>
+        脚本使用了 GM_addStyle 接口用于添加菜单的样式。<br />
+        脚本使用了 GM_xmlhttpRequest 接口用于访问相应地视频页面以获取分页信息。<br />
+        脚本访问的页面限于 /viedo/avXXX 的页面，和可能的由该链接跳转到的地址。<br />
+        脚本没有本地存储，也不会访问其他地址。
+      </p>
+    </div>
+
+    <h3>历史版本</h3>
+    <div class="in">
+      <ul>
+        <li>1.4&nbsp;&nbsp;：菜单顶部显示专题链接</li>
+        <li>1.2&nbsp;&nbsp;：在弹出的菜单上长按鼠标不会再弹出菜单，支持专题中的链接</li>
+        <li>1.1&nbsp;&nbsp;：修复用户空间页面下的错误链接，更新菜单样式</li>
+        <li>1.0&nbsp;&nbsp;：添加更新地址</li>
+        <li>0.1&nbsp;&nbsp;：初始版本</li>
+      </ul>
+    </div>
+
+    <h3>关于</h3>
+    <div class="in">
+      <p>脚本使用 GNU GPL v3 或 CC BY-SA 3.0 协议。</p>
+    </div>
+
+  </div>
+</body>
+</html>

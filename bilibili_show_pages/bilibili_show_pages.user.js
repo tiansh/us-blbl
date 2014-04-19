@@ -10,8 +10,9 @@
 // @include     http://bilibili.tv/*
 // @include     http://*.bilibili.tv
 // @include     http://*.bilibili.tv/*
-// @version     1.3
-// @updateURL   http://userscripts.org/scripts/source/389673.meta.js
+// @version     1.4
+// @updateURL   http://tiansh.github.io/us-blbl/bilibili_show_pages/bilibili_show_pages.user.js
+// @downloadURL http://tiansh.github.io/us-blbl/bilibili_show_pages/bilibili_show_pages.meta.js
 // @downloadURL http://userscripts.org/scripts/source/389673.user.js
 // @grant       GM_xmlhttpRequest
 // @grant       GM_addStyle
@@ -51,6 +52,7 @@ bilibili Show Pages
 
 
 【历史版本】
+   * 1.4  ：修理Chrome/Oprea下专题链接的支持，脚本迁移到github
    * 1.3  ：菜单顶部显示专题链接
    * 1.2  ：在弹出的菜单上长按鼠标不会再弹出菜单，支持专题中的链接
    * 1.1  ：修复用户空间页面下的错误链接，更新菜单样式
@@ -304,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
           title = doc.querySelector('.viewbox h2').innerHTML;
           spo = doc.querySelector('.v_bgm_list .info .detail a');
           if (spo) {
-            sp = { 'title': spo.textContent, 'href': spo.href };
+            sp = { 'title': spo.textContent, 'href': spo.getAttribute('href') };
           }
         } catch (e) { }
         chosePage(a, position, nodedata, title, sp);
@@ -357,3 +359,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }());
 
 });
+
