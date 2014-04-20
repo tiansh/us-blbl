@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-  <title>Bilibili Show Pages</title>
-  <meta name="keywords" content="bilibili, 哔哩哔哩, 分页, 分P" />
-  <meta name="description" content=" 在 bilibili 上，鼠标长按视频链接显示视频各分页的链接，方便直接打开想要的分页。" />
+  <title>Bilibili Player NO SSL</title>
+  <meta name="keywords" content="bilibili, 哔哩哔哩, 播放器, SSL, secure, HTTP" />
+  <meta name="description" content="使用 HTTP 页面显示 bilibili 的播放器而不是使用 HTTPS 页面，适用于一些因故不能访问 HTTPS 的情况。" />
   <style>
     html, body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; margin: 0; padding: 0; }
     body { background: #f0f0f0; padding-bottom: 40px; }
@@ -16,7 +16,7 @@
     h1 { color: #D95E7F; font-size: 40px; line-height: 60px; margin: 40px 0 20px 0; padding: 0; font-weight: bold; }
     header { display: block; height: 200px; }
     header li { list-style: none; }
-    #intro { border: 2px solid #F25D8E; float: left; height: 120px; line-height: 40px; font-size: 20px; padding: 18px; background: #f8f8f8; border-radius: 8px; margin-left: 30px; color: #333; }
+    #intro { border: 2px solid #F25D8E; float: left; height: 120px; line-height: 30px; font-size: 20px; padding: 18px; background: #f8f8f8; border-radius: 8px; margin-left: 30px; color: #333; }
     #intro strong { color: #000; font-weight: normal; }
     #side-buttons { width: 400px; height: 160px; float: right; padding: 0; text-align: right; margin-right: 30px; }
     #install { background: #F25D8E; color: #fff; font-size: 32px; line-height: 50px; padding: 10px 50px; width: 300px; clear: both; display: block; float: right; text-align: center; }
@@ -41,15 +41,16 @@
 </head>
 <body>
   <div id="main-body">
-    <h1>Bilibili Show Pages</h1>
+    <h1>Bilibili Player NO SSL</h1>
     <header>
       <div id="intro">
-        在视频链接上长按鼠标显示选择分页的菜单<br />
-        直接进入想要的分页而无需先打开第一个分页<br />
-        （本脚本包含于<a href="http://tiansh.github.io/rbb/">Replace bilibili bofqi</a>） 
+        想看 bilibili 视频时发现 SSL 出错？<br />
+        或者在一个只支持 HTTP 的代理后面？<br />
+        分页列表旁加一个非加密链接的播放器链接<br />
+        <strong>请注意帐号安全，不要在非加密链接上登录帐号</strong>
       </div>
       <div id="side-buttons">
-        <a id="install" href="bilibili_show_pages.user.js">安装脚本</a>
+        <a id="install" href="bilibili_player_no_ssl.user.js">安装脚本</a>
         <div id="report">
           <div id="report1">
             <a href="https://github.com/tiansh/us-blbl/issues" target="_blank">报告Bug</a>
@@ -64,14 +65,12 @@
     </header>
     <h3>功能</h3>
     <div class="in">
-      <div class="p">
-        想要看某个视频的特定分页，却不想点进去第一分页后再切到后面的分页？这个脚本可以显示一个选择分页的菜单，供你直接进入想要的分页。<br />
-        在视频链接上长按鼠标，会显示一个包括该视频分页信息的菜单。菜单标题为直接点击链接后指向的分页，下方为该视频的所有分页。<br />
-        本脚本是 <a href="http://tiansh.github.io/rbb/">Replace bilibili bofqi</a> 的一部分（去除了恢复原站播放器等功能），如果安装了该脚本请勿再安装本脚本，否则可能发生冲突。<br />
-        如果你使用其他恢复播放器的脚本则可以考虑使用本脚本。<br />
-        注意：本脚本<strong>不支持</strong>直接跳转到外站（如乐视）的视频。<br />
-        已知问题：在用户空间的页面，如果用户自定义了空间样式，可能会显示不正常。
-      </div>
+      <div class="p">使用 HTTP 页面显示 bilibili 的播放器而不是使用 HTTPS 页面，适用于一些因故不能访问 HTTPS 的情况。</div>
+      <div class="p">如果你访问 bilibili.tv 出现视频无法正常播放，而是遇到显示空白或类似“SSL 协议出错”的出错信息。可以考虑安装本脚本后使用非加密链接观看视频。</div>
+      <div class="p">这个 HTTP 页面的播放器仅供网络不正常时临时使用，不建议作为长期使用的工具。</div>
+      <div class="p"><strong>已知问题：</strong>打开的播放器不能正确地全屏，请用宽屏按钮实现页面全屏功能，请勿点击全屏或页面全屏按钮。</div>
+      <div class="p">脚本会在视频的分页选择位置添加一个打开非加密连接播放器的选项。点击该链接即可。</div>
+      <div class="p">本脚本不是用来解决版权番问题的，虽然会提供 miniloader 的链接，但是该链接似乎只在Firefox下可以工作，而且效果不好。所以如果你希望更好的兼容外站播放器的情况，建议你安装我的另一个脚本脚本<a href="http://tiansh.github.io/rbb/">Replace bilibili bofqi</a>，这个脚本会检查是否可以替换播放器，而且还可以支持乐视或其他相关视频，并且很好地可以配合本脚本一起使用。本脚本不接受任何关于外站播放器的相关功能的请求，也不保证 HTTP 播放器的功能在版权番中可用。</div>
     </div>
 
     <h3>浏览器兼容性</h3>
@@ -80,37 +79,13 @@
         本脚本可以在以下浏览器上运行：<br />
         <strong><a href="http://www.mozilla.org/en-US/firefox/all/#zh-CN">Firefox浏览器</a> + <a href="https://addons.mozilla.org/zh-CN/firefox/addon/greasemonkey/">GreaseMonkey附加组件</a> （建议）</strong><br />
         <a href="https://www.google.com/intl/zh-CN/chrome/browser/?standalone=1">Chrome浏览器</a> + <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">TamperMonkey扩展程序</a><br />
-        <a href="http://www.opera.com/zh-cn">Opera浏览器</a> + <a href="https://addons.opera.com/zh-cn/extensions/details/tampermonkey-beta/">TamperMonkey Beta扩展</a><br />
-        具体的脚本兼容性请参考 <a href="http://tiansh.github.io/rbb/">Replace bilibili bofqi</a> 脚本关于浏览器兼容性的介绍。
+        <a href="http://www.opera.com/zh-cn">Opera浏览器</a> + <a href="https://addons.opera.com/zh-cn/extensions/details/tampermonkey-beta/">TamperMonkey Beta扩展</a>
       </div>
-    </div>
-
-
-    <h3>权限与隐私</h3>
-    <div class="in">
-      <div class="p">
-        脚本使用了 GM_addStyle 接口用于添加菜单的样式。<br />
-        脚本使用了 GM_xmlhttpRequest 接口用于访问相应地视频页面以获取分页信息。<br />
-        脚本访问的页面限于 /viedo/avXXX 的页面，和可能的由该链接跳转到的地址。<br />
-        脚本没有本地存储，也不会访问其他地址。
-      </div>
-    </div>
-
-    <h3>历史版本</h3>
-    <div class="in">
-      <ul>
-        <li>1.4&nbsp;&nbsp;：修理Chrome/Oprea下专题链接的支持，脚本迁移到github</li>
-        <li>1.3&nbsp;&nbsp;：菜单顶部显示专题链接</li>
-        <li>1.2&nbsp;&nbsp;：在弹出的菜单上长按鼠标不会再弹出菜单，支持专题中的链接</li>
-        <li>1.1&nbsp;&nbsp;：修复用户空间页面下的错误链接，更新菜单样式</li>
-        <li>1.0&nbsp;&nbsp;：添加更新地址</li>
-        <li>0.1&nbsp;&nbsp;：初始版本</li>
-      </ul>
     </div>
 
     <h3>关于</h3>
     <div class="in">
-      <div class="p">脚本使用 GNU GPL v3 和 CC BY-SA 3.0 协议发布。</div>
+      <div class="p">脚本使用 MIT 协议发布。</div>
       <div class="p">我的B站ID：<a href="http://space.bilibili.tv/1378109/list.html">ts9(1378109)</a></div>
     </div>
 

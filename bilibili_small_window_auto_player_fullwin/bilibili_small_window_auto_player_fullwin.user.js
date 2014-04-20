@@ -4,9 +4,9 @@
 // @namespace   http://userscripts.org/users/ts
 // @include     /^http://([^/]*\.)?bilibili\.kankanews\.com(/.*)?$/
 // @include     /^http://([^/]*\.)?bilibili\.tv(/.*)?$/
-// @updateURL   https://userscripts.org/scripts/source/431906.meta.js
-// @downloadURL https://userscripts.org/scripts/source/431906.user.js
-// @version     1.1
+// @updateURL   http://tiansh.github.io/us-blbl/bilibili_small_window_auto_player_fullwin/bilibili_small_window_auto_player_fullwin.meta.js
+// @downloadURL http://tiansh.github.io/us-blbl/bilibili_small_window_auto_player_fullwin/bilibili_small_window_auto_player_fullwin.user.js
+// @version     1.2
 // @copyright   MIT License
 // @author      田生
 // @run-at      document-end

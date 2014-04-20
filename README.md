@@ -1,54 +1,5 @@
-# Replace bilibili Bofqi #
-
-见 http://github.com/tiansh/rbb
-
-# bilibili Show Pages #
-
-在 bilibili 上，鼠标长按视频链接显示视频各分页的链接，方便直接打开想要的分页。（本脚本包含于 Replace bilibili bofqi ）
-
-## 功能 ##
-
-想要看某个视频的特定分页，却不想点进去第一分页后再切到后面的分页？这个脚本可以显示一个选择分页的菜单，供你直接进入想要的分页。<br />
-在视频链接上长按鼠标，会显示一个包括该视频分页信息的菜单。菜单标题为直接点击链接后指向的分页，下方为该视频的所有分页。<br />
-本脚本是 Replace bilibili bofqi 的一部分（去除了恢复原站播放器等功能），如果安装了该脚本请勿再安装本脚本，否则可能发生冲突。<br />
-如果你使用其他恢复播放器的脚本则可以考虑使用本脚本。
-
-# bilibili Small Window Auto Player FullWin #
-
-bilibili视频页面上，缩放浏览器窗口到小窗口时自动将播放器页面全屏
-
-## 功能 ##
-
-bilibili视频页面，当将浏览器页面缩放到480x360像素以下时，自动将播放器页面全屏。
-
-这样你就可以方便地将浏览器窗口缩小之后放在旁边一边做别的事情一边看了～
-
-火狐用户可以安装Always on top附加组件，让浏览器窗口总是显示在其他窗口的上面～<br />
-（我与该附加组件的作者无关，不保证该附加组件的可用性或适用性。）
-
-
-# bilibili Player NO SSL #
-
-使用 HTTP 页面显示 bilibili 的播放器而不是使用 HTTPS 页面，适用于一些因故不能访问 HTTPS 的情况。 
-
-## 为了您的账户信息安全，请不要在非加密的链接上登录用户！ ##
-## 功能 ##
-
-如果你访问 bilibili.tv 出现视频无法正常播放，而是遇到显示空白或类似“SSL 协议出错”的出错信息，或者如下方图所示的错误信息。可以考虑安装本脚本后使用非加密链接观看视频。
-
-这个 HTTP 页面的播放器仅供网络不正常时临时使用，不建议作为长期使用的工具。
-
-已知问题：打开的播放器不能正确地全屏，请用宽屏按钮实现页面全屏功能，请勿点击全屏或页面全屏按钮。
-
-脚本会在视频的分页选择位置添加一个打开非加密连接播放器的选项。点击该链接即可。
-
-本脚本不是用来解决版权番问题的，虽然会提供 miniloader 的链接，但是该链接似乎只在Firefox下可以工作，而且效果不好。所以如果你希望更好的兼容外站播放器的情况，建议你安装我的另一个脚本脚本 Replace bilibili bofqi，这个脚本会检查是否可以替换播放器，而且还可以支持乐视或其他相关视频，并且很好地可以配合本脚本一起使用。本脚本不接受任何关于外站播放器的相关功能的请求，也不保证 HTTP 播放器的功能在版权番中可用。
-
-
-# Bilibili Radio Danmuku #
-
-bilibil电台页面弹幕辅助功能
-
-# 功能 #
-
-等那页修好了再说，或者就随他去吧。 FML
+[Replace bilibili Bofqi](http://tiansh.github.io/rbb/)
+[bilibili Show Pages](http://tiansh.github.io/us-blbl/bilibili_show_pages/)
+[bilibili Small Window Auto Player FullWin](http://tiansh.github.io/us-blbl/bilibili_small_window_auto_player_fullwin)
+[bilibili Player NO SSL](http://tiansh.github.io/us-blbl/bilibili_player_no_ssl)
+[Bilibili Radio Danmuku](http://tiansh.github.io/us-blbl/bilibili_radio_danmuku)

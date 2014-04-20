@@ -6,8 +6,8 @@
 // @include     http://bilibili.kankanews.com/html/musicradio.html
 // @include     http://aod.cnr.cn/index.php?*
 // @version     1.2
-// @updateURL   http://userscripts.org/scripts/source/184079.meta.js
-// @downloadURL http://userscripts.org/scripts/source/184079.user.js
+// @updateURL   http://tiansh.github.io/bilibili_radio_danmuku/bilibili_radio_danmuku.meta.js
+// @downloadURL http://tiansh.github.io/bilibili_radio_danmuku/bilibili_radio_danmuku.user.js
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_xmlhttpRequest

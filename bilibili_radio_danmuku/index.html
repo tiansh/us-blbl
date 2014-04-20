@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <title>Bilibili Radio Danmuku</title>
+  <meta name="keywords" content="bilibili, 哔哩哔哩, 播放器, SSL, secure, HTTP" />
+  <meta name="description" content="bilibili.tv 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色、弹幕桌面提示、页面评论、替换节目表、修复页面全屏" />
+  <style>
+    html, body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; margin: 0; padding: 0; }
+    body { background: #f0f0f0; padding-bottom: 40px; }
+    #main-body { width: 960px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; font-size: 100%; font-weight: normal; }
+    a, a:hover, a:active, a:visited { text-decoration: none; color: #ff7d3e; outline: none; }
+    a img { border: none; }
+    h1 { color: #ff6f21; font-size: 40px; line-height: 60px; margin: 40px 0 20px 0; padding: 0; font-weight: bold; }
+    header { display: block; height: 200px; }
+    header li { list-style: none; }
+    #intro { border: 2px solid #ffa146; float: left; height: 120px; line-height: 30px; font-size: 20px; padding: 18px; background: #f8f8f8; border-radius: 8px; margin-left: 30px; color: #333; }
+    #intro strong { color: #000; font-weight: normal; }
+    #side-buttons { width: 400px; height: 160px; float: right; padding: 0; text-align: right; margin-right: 30px; }
+    #install { background: #ff853d; color: #fff; font-size: 32px; line-height: 50px; padding: 10px 50px; width: 300px; clear: both; display: block; float: right; text-align: center; }
+    #install:hover { background: #ff6f21; }
+    #report { float: right; width: 100%; height: 70px; padding: 20px 0 0; display: block; font-size: 16px; }
+    #report1, #report2 { height: 80px; width: 48%; display: block; }
+    #report1 { float: left; }
+    #report2 { float: right; }
+    #report a { width: 100%; background: #e1e1e1; display: block; height: 40px; line-height: 40px; color: #aaa; text-align: center; }
+    #report a:hover { background: #dbc777; color: #fff; }
+    #report span { width: 100%; text-align: center; display: block; line-height: 30px; color: #aaa; }
+    h3 { font-size: 24px; font-weight: bold; border-bottom: 2px #ccc solid; padding: 10px 20px; margin: 20px 0 10px; }
+    h3::before { background: #ffa641; content: ""; display: block; float: left; height: 20px; left: -20px; position: relative; width: 10px; }
+    .browser { width: 840px; padding: 10px 20px 10px 100px; position: relative; min-height: 100px; }
+    .browser-icon { position: absolute; left: 20px; top: 20px; }
+    .warning { color: red; font-weight: bold; }
+    .in { padding: 5px 2em; border: 4px; }
+    .p { margin: 0.5em 0; }
+    ul { margin: 0; }
+  </style>
+</head>
+<body>
+  <div id="main-body">
+    <h1>bilibili Raido Danmuku</h1>
+    <header>
+      <div id="intro">
+        bilibili.tv 站点 CNR 音乐之声广播页面<br />
+        　侧栏弹幕颜色　弹幕桌面提示<br />
+        　页面评论　替换节目表<br />
+        　修复页面全屏
+      </div>
+      <div id="side-buttons">
+        <a id="install" href="bilibili_radio_danmuku.user.js">安装脚本</a>
+        <div id="report">
+          <div id="report1">
+            <a href="https://github.com/tiansh/us-blbl/issues" target="_blank">报告Bug</a>
+            <span>在github上报告错误</span>
+          </div>
+          <div id="report2">
+            <a href="http://member.bilibili.tv/#msg&amp;act=new&amp;mid=1378109" target="_blank">私信我</a>
+            <span>在bilibili上私信作者</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <h3>功能</h3>
+    <div class="in">
+      <div class="p">修改 bilibili.tv 站点 CNR 音乐之声页面：<ul>
+      <li>对播放器右侧的历史弹幕增加显示颜色取消数量限制</li>
+      <li>弹幕的桌面提示功能</li>
+      <li>显示页面评论</li>
+      <li>使用 CNR 网站的节目表替换下方的节目表</li>
+      <li>修复页面全屏等问题</li></ul></div>
+      <div class="p">
+        第一次运行脚本时需要点击视频右侧“评论”字样的横条，后根据浏览器要求给相应权限。脚本只有有桌面提示权限才能弹出桌面提示。
+      </div>
+    </div>
+
+    <h3>浏览器兼容性</h3>
+    <div class="in">
+      <div class="p">
+        本脚本可以在以下浏览器上运行：<br />
+        <strong><a href="http://www.mozilla.org/en-US/firefox/all/#zh-CN">Firefox浏览器</a> + <a href="https://addons.mozilla.org/zh-CN/firefox/addon/greasemonkey/">GreaseMonkey附加组件</a> （建议）</strong><br />
+        <a href="https://www.google.com/intl/zh-CN/chrome/browser/?standalone=1">Chrome浏览器</a> + <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">TamperMonkey扩展程序</a>（桌面提示功能要求Chrome 32或更高版本）<br />
+        <a href="http://www.opera.com/zh-cn">Opera浏览器</a> + <a href="https://addons.opera.com/zh-cn/extensions/details/tampermonkey-beta/">TamperMonkey Beta扩展</a>（不支持桌面提示功能）
+      </div>
+    </div>
+
+    <h3>用户隐私</h3>
+    <div class="in">
+      脚本在本地保存了您当前桌面提示的开关状况，这些信息可以被浏览器内的其他插件及用户查看。<br />
+      脚本申请了网络访问权限访问了 comment.bilibili.tv 用于获取弹幕信息。<br />
+      此外脚本还打开了 aod.cnr.cn 中音乐之声的页面，以显示节目单。<br />
+      脚本没有其他的网络访问。
+    </div>
+
+    <h3>关于</h3>
+    <div class="in">
+      <div class="p">脚本使用 MIT 协议发布。</div>
+      <div class="p">我的B站ID：<a href="http://space.bilibili.tv/1378109/list.html">ts9(1378109)</a></div>
+    </div>
+
+    <h3>其他</h3>
+    <div class="in">
+      顺便一说，弹幕的英文一般意译成 Bullet Hell ，或者按照だんまく的罗马字转写译成 Danmaku 。<br />
+      至于这个脚本名字啥的，那个是 bilibili.tv 电台页面上给显示历史弹幕的那个框起的名字（class），别问我是啥意思。
+    </div>
+
+  </div>
+</body>
+</html>
