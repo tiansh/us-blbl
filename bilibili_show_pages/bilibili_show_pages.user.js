@@ -5,9 +5,8 @@
 // @include     /^http://([^/]*\.)?bilibili\.kankanews\.com(/.*)?$/
 // @include     /^http://([^/]*\.)?bilibili\.tv(/.*)?$/
 // @version     1.4
-// @updateURL   http://tiansh.github.io/us-blbl/bilibili_show_pages/bilibili_show_pages.user.js
-// @downloadURL http://tiansh.github.io/us-blbl/bilibili_show_pages/bilibili_show_pages.meta.js
-// @downloadURL http://userscripts.org/scripts/source/389673.user.js
+// @updateURL   http://tiansh.github.io/us-blbl/bilibili_show_pages/bilibili_show_pages.meta.js
+// @downloadURL http://tiansh.github.io/us-blbl/bilibili_show_pages/bilibili_show_pages.user.js
 // @grant       GM_xmlhttpRequest
 // @grant       GM_addStyle
 // @copyright   GNU GPL v3, CC BY-SA 3.0
