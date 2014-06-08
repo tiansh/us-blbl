@@ -4,7 +4,7 @@
 // @description 修正哔哩哔哩新番二次元视频列表页面，显示隐藏的视频。注意，这些链接会显示404，所以请配合恢复播放器的相关脚本使用。
 // @include     http://www.bilibili.tv/video/bangumi-two-*.html
 // @include     http://bilibili.kankanews.com/video/bangumi-two-*.html
-// @version     2.41
+// @version     2.42
 // @updateURL   https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.meta.js
 // @downloadURL https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.user.js
 // @grant       GM_xmlhttpRequest
@@ -152,7 +152,7 @@
   // 使用手机的API获取数据
   GM_xmlhttpRequest({
     'method': 'GET',
-    'url': 'http://api.bilibili.cn/list?pagesize=24&type=json&page=' + page +
+    'url': 'http://api.bilibili.com/list?pagesize=24&type=json&page=' + page +
       '&ios=0&order=default&appkey=0a99fa1d87fdd38c&platform=ios&tid=33',
     'headers': { 'User-Agent': 'bilianime/570 CFNetwork/672.0.8 Darwin/14.0.0' },
     'onload': function (resp) {
