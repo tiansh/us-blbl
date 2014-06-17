@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name        Bilibili Radio Danmuku
 // @namespace   http://userscripts.org/users/ts
-// @description bilibili.tv 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色、弹幕桌面提示、页面评论、替换节目表、修复页面全屏
+// @description bilibili 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色、弹幕桌面提示、页面评论、替换节目表、修复页面全屏
+// @include     http://www.bilibili.com/html/musicradio.html
 // @include     http://www.bilibili.tv/html/musicradio.html
 // @include     http://bilibili.kankanews.com/html/musicradio.html
 // @include     http://aod.cnr.cn/index.php?*
@@ -21,10 +22,10 @@
 /*
 
 Bilibili Radio Danmuku
-bilibili.tv 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色、弹幕桌面提示、页面评论、替换节目表、修复页面全屏
+bilibili 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色、弹幕桌面提示、页面评论、替换节目表、修复页面全屏
 
 【功能】
-  修改 bilibili.tv 站点 CNR 音乐之声页面
+  修改 bilibili 站点 CNR 音乐之声页面
    * 对播放器右侧的历史弹幕增加显示颜色取消数量限制
    * 弹幕的桌面提示功能
    * 显示页面评论
@@ -44,7 +45,7 @@ bilibili.tv 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色
 
 【用户隐私】
   脚本在本地保存了您当前桌面提示的开关状况，这些信息可以被浏览器内的其他插件及用户查看。
-  脚本申请了网络访问权限访问了 comment.bilibili.tv 用于获取弹幕信息。
+  脚本申请了网络访问权限访问了 comment.bilibili.com 用于获取弹幕信息。
   此外脚本还打开了 aod.cnr.cn 中音乐之声的页面，以显示节目单。
   脚本没有其他的网络访问。
 
@@ -53,7 +54,7 @@ bilibili.tv 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色
 
 【其他】
   顺便一说，弹幕的英文一般意译成 Bullet Hell ，或者按照だんまく的罗马字转写译成 Danmaku 。
-  至于这个脚本名字啥的，那个是 bilibili.tv 电台页面上给显示历史弹幕的那个框起的名字（class），别问我是啥意思。
+  至于这个脚本名字啥的，那个是 bilibili 电台页面上给显示历史弹幕的那个框起的名字（class），别问我是啥意思。
 
 */
 
@@ -263,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     GM_xmlhttpRequest({
       'method': 'GET',
-      'url': 'http://comment.bilibili.tv/' + cid + '.js',
+      'url': 'http://comment.bilibili.com/' + cid + '.js',
       'onload': function (resp) {
         try {
           var r = JSON.parse(resp.responseText.replace(/^[^\(]*\(/, '').replace(/\)[^\)]*$/, ''));
@@ -439,3 +440,4 @@ document.addEventListener('DOMContentLoaded', function fixBofqi() {
   var common = document.querySelector('.common');
   common.parentNode.appendChild(rat.firstChild);
 });
+

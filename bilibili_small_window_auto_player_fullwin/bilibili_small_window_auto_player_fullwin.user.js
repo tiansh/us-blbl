@@ -2,11 +2,12 @@
 // @name        bilibili Small Window Auto Player FullWin
 // @description bilibili视频页面上，缩放浏览器窗口到小窗口时自动将播放器页面全屏
 // @namespace   http://userscripts.org/users/ts
-// @include     /^http://([^/]*\.)?bilibili\.kankanews\.com(/.*)?$/
+// @include     /^http://([^/]*\.)?bilibili\.com(/.*)?$/
 // @include     /^http://([^/]*\.)?bilibili\.tv(/.*)?$/
+// @include     /^http://([^/]*\.)?bilibili\.kankanews\.com(/.*)?$/
 // @updateURL   https://tiansh.github.io/us-blbl/bilibili_small_window_auto_player_fullwin/bilibili_small_window_auto_player_fullwin.meta.js
 // @downloadURL https://tiansh.github.io/us-blbl/bilibili_small_window_auto_player_fullwin/bilibili_small_window_auto_player_fullwin.user.js
-// @version     1.2
+// @version     1.3
 // @copyright   MIT License
 // @author      田生
 // @run-at      document-end
@@ -38,10 +39,13 @@ var mina = function () {
     },
     'url': {
       'iframe': {
+        'secure2': 'https://secure.bilibili.com/secure,',
         'secure': 'https://secure.bilibili.tv/secure,',
         'ssl': 'https://ssl.bilibili.tv/secure,',
       },
       'flash': [
+        'https://static-s.bilibili.com/play.swf',
+        'https://static-s.bilibili.com/live-play.swf',
         'https://static-s.bilibili.tv/play.swf',
         'https://static-s.bilibili.tv/live-play.swf',
         'http://static.hdslb.com/play.swf',

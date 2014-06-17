@@ -2,9 +2,10 @@
 // @name        Bilibili Show Hidden Bangumi
 // @namespace   https://github.com/tiansh
 // @description 修正哔哩哔哩新番二次元视频列表页面，显示隐藏的视频。注意，这些链接会显示404，所以请配合恢复播放器的相关脚本使用。
+// @include     http://www.bilibili.com/video/bangumi-two-*.html
 // @include     http://www.bilibili.tv/video/bangumi-two-*.html
 // @include     http://bilibili.kankanews.com/video/bangumi-two-*.html
-// @version     2.42
+// @version     2.44
 // @updateURL   https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.meta.js
 // @downloadURL https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.user.js
 // @grant       GM_xmlhttpRequest
@@ -14,8 +15,23 @@
 // @run-at      document-start
 // ==/UserScript==
 
+
 // 修正新番列表中部分视频不显示的问题
 (function fixBangumiTwoList() {
+
+  var bilibili = {
+    'url': {
+      'host': [
+        'www.bilibili.com',
+        'www.bilibili.tv',
+        'bilibili.kankanews.com',
+        'www.bilibili.cn',
+      ],
+    },
+    'host': location.host,
+  };
+  if (bilibili.url.host.indexOf(bilibili.host) === -1)
+    bilibili.host = bilibili.url.host[0];
 
   var loaded = !!document.body, data = null, page;
 
@@ -24,7 +40,7 @@
   var formatFriendlyNumber = function (b) {
     if ('number' === typeof b) b = String(b);
     if (!(0 <= b.indexOf("\u4e07") || 0 <= b.indexOf(","))) {
-      return (b = parseInt(b)) ? 10000 <= b && (b = (b / 10000).toFixed(1) + "\u4e07"): b = "--", b
+      return (b = parseInt(b)) ? 10000 <= b && (b = (b / 10000).toFixed(1) + "\u4e07") : b = "--", b
     }
   };
   // 转义XML字符
@@ -76,7 +92,7 @@
             '<i class="date" title="日期">', xmlEscape(video.create), '</i>',
           '</div>',
           '<div class="info">', xmlEscape(video.description), '</div>',
-          '<a class="up r10000" target="_blank" href="http://space.bilibili.tv/', video.mid, '">', xmlEscape(video.author), '</a>',
+          '<a class="up r10000" target="_blank" href="http://space.bilibili.com/', video.mid, '">', xmlEscape(video.author), '</a>',
         '</li>',
       ].join('');
       ul.appendChild(c.firstChild);
@@ -89,7 +105,7 @@
   var hideNextPage = function () {
     GM_xmlhttpRequest({
       'method': 'GET',
-      'url': 'http://www.bilibili.tv/video/bangumi-two-' + (page + 1) + '.html',
+      'url': 'http://' + bilibili.host + '/video/bangumi-two-' + (page + 1) + '.html',
       'onload': function (resp) {
         var doc = (new DOMParser()).parseFromString(resp.responseText, 'text/html');
         dataFromDocument(doc).map(function (video) {
@@ -113,8 +129,8 @@
 
   var dataFromDocument = function (doc) {
     var cnt = Array.apply(Array, doc.querySelectorAll('.vd_list li'));
-    return cnt.map(function (li) { 
-      try{
+    return cnt.map(function (li) {
+      try {
         var qs = li.querySelector.bind(li);
         return {
           'aid': qs('.title').href.match(/\/av(\d+)/)[1],
@@ -129,7 +145,7 @@
           'author': qs('.up').textContent,
           'visible': 'web',
         };
-      } catch (e) {}
+      } catch (e) { }
     }).filter(function (x) { return x; });
   };
 
@@ -145,7 +161,7 @@
         data[found].visible = 'all';
     };
     dataFromDocument(document).forEach(add2Data);
-    data.sort(function (x, y) { return Number(x.aid) < Number(y.aid); })
+    data.sort(function (x, y) { return Number(y.aid) - Number(x.aid); })
     return data;
   };
 

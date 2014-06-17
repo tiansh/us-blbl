@@ -1,6 +1,6 @@
 # Bilibili Radio Danmuku #
 
-修改 bilibili.tv 站点 CNR 音乐之声页面：
+修改 bilibili 站点 CNR 音乐之声页面：
 * 对播放器右侧的历史弹幕增加显示颜色取消数量限制
 * 弹幕的桌面提示功能
 * 显示页面评论

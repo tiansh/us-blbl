@@ -4,9 +4,10 @@
 // @description 使用 HTTP 页面显示 bilibili 的播放器而不是使用 HTTPS 页面，适用于一些因故不能访问 HTTPS 的情况。
 // @updateURL   https://tiansh.github.io/us-blbl/bilibili_player_no_ssl/bilibili_player_no_ssl.meta.js
 // @downloadURL https://tiansh.github.io/us-blbl/bilibili_player_no_ssl/bilibili_player_no_ssl.user.js
-// @include     /^http://([^/]*\.)?bilibili\.kankanews\.com(/.*)?$/
+// @include     /^http://([^/]*\.)?bilibili\.com(/.*)?$/
 // @include     /^http://([^/]*\.)?bilibili\.tv(/.*)?$/
-// @version     1.4
+// @include     /^http://([^/]*\.)?bilibili\.kankanews\.com(/.*)?$/
+// @version     1.5
 // @copyright   MIT License
 // @author      田生
 // @run-at      document-start
@@ -31,13 +32,27 @@ var bilibili = {
   }
 };
 
+var showStaticPlayer = function (aid, cid) {
+  document.querySelector('#bofqi').innerHTML = [
+    '<embed height="482" width="950" class="player" ',
+      'allowFullScreenInteractive="true" ',
+      'pluginspage="http://www.adobe.com/shockwave/download/',
+        'download.cgi?P1_Prod_Version=ShockwaveFlash" ',
+      'AllowScriptAccess="always" rel="noreferrer" ',
+      'flashvars="cid=', cid, '&aid=', aid, '" ',
+      'src="http://static.hdslb.com/play.swf" ',
+      'type="application/x-shockwave-flash" ',
+      'allowfullscreen="true" quality="high" wmode="window" />'
+  ].join('');
+};
+
 // 显示链接
 var addLink = (function () {
   var noSSL = null;
   var init = function () {
     var d = document.createElement('div');
     d.innerHTML = ['<div id="bilibili-player-no-ssl">',
-      '<a target="_blank" href="#"></a>',
+      '<a href="javascript:void(0);" target="_blank"></a>',
     '</div>'].join('');
     document.querySelector('.alist').appendChild(d.firstChild);
     noSSL = document.querySelector('#bilibili-player-no-ssl a');
@@ -62,18 +77,30 @@ var videoPage = function (href, nullpage) {
   return { 'aid': aid, 'pid': pid };
 };
 
+// 获取当前cid
+var getCid = function (callback) {
+  var cid = null;
+  try {
+    cid = Number(
+      document.querySelector('#bofqi iframe').src
+      .match(/cid=(\d+)/)[1]);
+  } catch (e) { }
+  if (!cid) try {
+    cid = Number(
+      document.querySelector('#bofqi embed').getAttribute('flashvars')
+      .match(/cid=(\d+)/)[1]);
+  } catch (e) { }
+  setTimeout(function () { callback(cid || undefined); }, 0);
+};
+
 // 主程序
 var mina = function () {
   var prefix = 'https://secure.bilibili.tv/secure,';
   var id = videoPage(location.href);
-  if (!id) return false;
-  var player = document.querySelector('#bofqi .player');
-  if (player && player.src.indexOf(prefix) === 0) {
-    var arg = player.src.slice(prefix.length);
-    addLink('http://static.hdslb.com/play.swf?' + arg, '非加密链接播放器');
-  } else {
-    addLink('http://static.hdslb.com/miniloader.swf?aid=' + id.aid + '&page=' + id.pid, '非加密连接播放器（miniloader）');
-  }
+  getCid(function (cid) {
+    if (cid)
+      addLink('http://static.hdslb.com/play.swf?aid=' + id.aid + '&cid=' + cid, '非加密链接播放器');
+  });
 };
 
 document.addEventListener('DOMContentLoaded', mina);

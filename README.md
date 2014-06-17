@@ -16,3 +16,6 @@ bilibili.tv Õ¾µã CNR ÒôÀÖÖ®Éù¹ã²¥Ò³ÃæÏà¹Ø¹¦ÄÜ£º²àÀ¸µ¯Ä»ÑÕÉ«¡¢µ¯Ä»×ÀÃæÌáÊ¾¡¢Ò³ÃæÆ
 [Bilibili Show Hidden Bangumi](https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi)<br />
 ĞŞÕıßÙÁ¨ßÙÁ¨ĞÂ·¬¶ş´ÎÔªÊÓÆµÁĞ±íÒ³Ãæ£¬ÏÔÊ¾Òş²ØµÄÊÓÆµ¡£×¢Òâ£¬ÕâĞ©Á´½Ó»áÏÔÊ¾404£¬ËùÒÔÇëÅäºÏ»Ö¸´²¥·ÅÆ÷µÄÏà¹Ø½Å±¾Ê¹ÓÃ¡£
 
+[bilibili ASS Danmaku Downloader](https://tiansh.github.io/danmaku/bilibili/)<br />
+ÒÔ ASS ¸ñÊ½ÏÂÔØ bilibili µÄµ¯Ä»
+

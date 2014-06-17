@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name        Bilibili Radio Danmuku
 // @namespace   http://userscripts.org/users/ts
-// @description bilibili.tv 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色、弹幕桌面提示、页面评论、替换节目表、修复页面全屏
+// @description bilibili 站点 CNR 音乐之声广播页面相关功能：侧栏弹幕颜色、弹幕桌面提示、页面评论、替换节目表、修复页面全屏
+// @include     http://www.bilibili.com/html/musicradio.html
 // @include     http://www.bilibili.tv/html/musicradio.html
 // @include     http://bilibili.kankanews.com/html/musicradio.html
 // @include     http://aod.cnr.cn/index.php?*
@@ -17,3 +18,4 @@
 // @author      田生
 // @run-at      document-start
 // ==/UserScript==
+
