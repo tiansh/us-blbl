@@ -37,9 +37,16 @@
     .in { padding: 5px 2em; border: 4px; }
     .p { margin: 0.5em 0; }
     ul { margin: 0; }
+    #gm2-notice { height: 60px; line-height: 60px; padding: 20px; font-size: 30px; font-weight: bold; text-align: center; background: #fcc; }
   </style>
 </head>
 <body>
+  <script>
+    if (navigator.userAgent.indexOf('Firefox') !== -1) document.write('<div id="gm2-notice">注意，本脚本尚不兼容 Greasemonkey 2.0 。</div>');
+  </script>
+  <noscript>
+    <div id="gm2-notice">注意，本脚本尚不兼容 Greasemonkey 2.0 。</div>
+  </noscript>
   <div id="main-body">
     <h1>bilibili Small Window Auto Player FullWin</h1>
     <header>
