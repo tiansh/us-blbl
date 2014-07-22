@@ -5,7 +5,7 @@
 // @include     http://www.bilibili.com/video/bangumi-two-*.html
 // @include     http://www.bilibili.tv/video/bangumi-two-*.html
 // @include     http://bilibili.kankanews.com/video/bangumi-two-*.html
-// @version     2.44
+// @version     2.51
 // @updateURL   https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.meta.js
 // @downloadURL https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.user.js
 // @grant       GM_xmlhttpRequest

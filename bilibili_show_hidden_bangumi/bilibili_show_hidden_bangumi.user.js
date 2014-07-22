@@ -5,7 +5,7 @@
 // @include     http://www.bilibili.com/video/bangumi-two-*.html
 // @include     http://www.bilibili.tv/video/bangumi-two-*.html
 // @include     http://bilibili.kankanews.com/video/bangumi-two-*.html
-// @version     2.44
+// @version     2.51
 // @updateURL   https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.meta.js
 // @downloadURL https://tiansh.github.io/us-blbl/bilibili_show_hidden_bangumi/bilibili_show_hidden_bangumi.user.js
 // @grant       GM_xmlhttpRequest
@@ -15,16 +15,21 @@
 // @run-at      document-start
 // ==/UserScript==
 
-
 // 修正新番列表中部分视频不显示的问题
 (function fixBangumiTwoList() {
+
+  var page = (function () {
+    var r = location.href.match(/http:\/\/[^\/]*\/video\/bangumi-two-(\d+).html/);
+    return r && r[1] && Number(r[1]);
+  }());
+  if (!page) return;
 
   var bilibili = {
     'url': {
       'host': [
         'www.bilibili.com',
-        'www.bilibili.tv',
         'bilibili.kankanews.com',
+        'www.bilibili.tv',
         'www.bilibili.cn',
       ],
     },
@@ -33,7 +38,7 @@
   if (bilibili.url.host.indexOf(bilibili.host) === -1)
     bilibili.host = bilibili.url.host[0];
 
-  var loaded = !!document.body, data = null, page;
+  var loaded = !!document.body, data = null;
 
   // 将数字转换成以万为单位计数的形式
   // http://static.hdslb.com/js/base.core.v2.js
@@ -52,19 +57,6 @@
     d.innerHTML = s;
     return d.textContent;
   };
-
-  (function () {
-    var r = location.href.match(/http:\/\/[^\/]*\/video\/bangumi-two-(\d+).html/);
-    if (!r || !r[1]) return;
-    page = Number(r[1]);
-    // 先隐藏已有的新番列表
-    GM_addStyle('.video_list ul.vd_list { visibility: hidden; }')
-    // 检查文档树是否已经被解析出
-    if (!loaded) document.addEventListener('DOMContentLoaded', function () {
-      loaded = true;
-      active();
-    });
-  }());
 
   // 显示新番列表
   var showList = function () {
@@ -166,24 +158,40 @@
   };
 
   // 使用手机的API获取数据
-  GM_xmlhttpRequest({
-    'method': 'GET',
-    'url': 'http://api.bilibili.com/list?pagesize=24&type=json&page=' + page +
-      '&ios=0&order=default&appkey=0a99fa1d87fdd38c&platform=ios&tid=33',
-    'headers': { 'User-Agent': 'bilianime/570 CFNetwork/672.0.8 Darwin/14.0.0' },
-    'onload': function (resp) {
-      var respData, i;
-      try {
-        respData = JSON.parse(resp.responseText).list;
-        for (data = [], i = 0; i < 24; i++) {
-          data[i] = respData[i];
-          data[i].title = xmlUnescape(data[i].title);
-          data[i].visible = 'mobile'
-        }
-      } catch (e) { showList(); }
+  var getData = function () {
+    GM_xmlhttpRequest({
+      'method': 'GET',
+      'url': 'http://api.bilibili.com/list?pagesize=24&type=json&page=' + page +
+        '&ios=0&order=default&appkey=0a99fa1d87fdd38c&platform=ios&tid=33',
+      'headers': { 'User-Agent': 'bilianime/570 CFNetwork/672.0.8 Darwin/14.0.0' },
+      'onload': function (resp) {
+        var respData, i;
+        try {
+          respData = JSON.parse(resp.responseText).list;
+          for (data = [], i = 0; i < 24; i++) {
+            data[i] = respData[i];
+            data[i].title = xmlUnescape(data[i].title);
+            data[i].visible = 'mobile'
+          }
+          active();
+        } catch (e) { showList(); }
+      },
+      'onerror': showList,
+      'timeout': 3000,
+      'ontimeout': showList,
+    });
+  };
+
+  (function () {
+    // 先隐藏已有的新番列表
+    GM_addStyle('.video_list ul.vd_list { visibility: hidden; }')
+    // 检查文档树是否已经被解析出
+    if (!loaded) document.addEventListener('DOMContentLoaded', function () {
+      loaded = true;
       active();
-    },
-    'onerror': showList,
-  });
+    });
+    getData();
+  }());
+
 
 }());
