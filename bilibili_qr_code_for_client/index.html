@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <title>Bilibili Player NO SSL</title>
+  <meta name="keywords" content="bilibili, 哔哩哔哩, QR码, 二维码, 客户端, iOS" />
+  <meta name="description" content="在手机浏览器中扫描 bilibili 网页上的 QR 码后使用客户端而非浏览器打开对应视频" />
+  <style>
+    html, body { font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; margin: 0; padding: 0; }
+    body { background: #f0f0f0; padding-bottom: 40px; }
+    #main-body { width: 960px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; font-size: 100%; font-weight: normal; }
+    a, a:hover, a:active, a:visited { text-decoration: none; color: #f25d8e; outline: none; }
+    a img { border: none; }
+    h1 { color: #D95E7F; font-size: 40px; line-height: 60px; margin: 40px 0 20px 0; padding: 0; font-weight: bold; }
+    header { display: block; height: 200px; }
+    header li { list-style: none; }
+    #intro { border: 2px solid #F25D8E; float: left; height: 120px; line-height: 30px; font-size: 20px; padding: 18px; background: #f8f8f8; border-radius: 8px; margin-left: 30px; color: #333; }
+    #intro strong { color: #000; font-weight: normal; }
+    #side-buttons { width: 400px; height: 160px; float: right; padding: 0; text-align: right; margin-right: 30px; }
+    #install { background: #F25D8E; color: #fff; font-size: 32px; line-height: 50px; padding: 10px 50px; width: 300px; clear: both; display: block; float: right; text-align: center; }
+    #install:hover { background: #f32b6d; }
+    #report { float: right; width: 100%; height: 70px; padding: 20px 0 0; display: block; font-size: 16px; }
+    #report1, #report2 { height: 80px; width: 48%; display: block; }
+    #report1 { float: left; }
+    #report2 { float: right; }
+    #report a { width: 100%; background: #e1e1e1; display: block; height: 40px; line-height: 40px; color: #aaa; text-align: center; }
+    #report a:hover { background: #fdb4c8; color: #fff; }
+    #report span { width: 100%; text-align: center; display: block; line-height: 30px; color: #aaa; }
+    #install_instruct h3 { margin; }
+    h3 { font-size: 24px; font-weight: bold; border-bottom: 2px #ccc solid; padding: 10px 20px; margin: 20px 0 10px; }
+    h3::before { background: #f32b6d; content: ""; display: block; float: left; height: 20px; left: -20px; position: relative; width: 10px; }
+    .browser { width: 840px; padding: 10px 20px 10px 100px; position: relative; min-height: 100px; }
+    .browser-icon { position: absolute; left: 20px; top: 20px; }
+    .warning { color: red; font-weight: bold; }
+    .in { padding: 5px 2em; border: 4px; }
+    .p { margin: 0.5em 0; }
+    ul { margin: 0; }
+  </style>
+</head>
+<body>
+  <div id="main-body">
+    <h1>Bilibili Player NO SSL</h1>
+    <header>
+      <div id="intro">
+        bilibili 的 iOS 客户端不能扫描二维码；<br />
+        又希望扫描二维码后可以打开客户端观看；<br />
+        替换网页上的二维码，使用客户端打开视频<br />
+        <strong>（手机上需要安装粉色图标的客户端）</strong>
+      </div>
+      <div id="side-buttons">
+        <a id="install" href="bilibili_QR_Code_for_Client.user.js">安装脚本</a>
+        <div id="report">
+          <div id="report1">
+            <a href="https://github.com/tiansh/us-blbl/issues" target="_blank">报告Bug</a>
+            <span>在github上报告错误</span>
+          </div>
+          <div id="report2">
+            <a href="http://member.bilibili.com/#message?mid=1378109" target="_blank">私信我</a>
+            <span>在bilibili上私信作者</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <h3>功能</h3>
+    <div class="in">
+      <div class="p">因为未越狱的 iOS 平台上的客户端目前还没有扫条码的功能。所以，这个脚本的用途是替换网页上的 QR 码，这样您只要使用手机上其他软件的 QR 码读取功能（如 Opera 浏览器），即可用客户端而非网页打开对应的视频了。</div>
+      <div class="p">这个二维码应该也支持安卓和 WP 的客户端，吧。不知道呢～</div>
+    </div>
+    <h3>关于</h3>
+    <div class="in">
+      <div class="p">脚本使用 MPL 协议发布。</div>
+    </div>
+  </div>
+</body>
+</html>

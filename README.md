@@ -19,3 +19,5 @@ bilibili.tv Õ¾µã CNR ÒôÀÖÖ®Éù¹ã²¥Ò³ÃæÏà¹Ø¹¦ÄÜ£º²àÀ¸µ¯Ä»ÑÕÉ«¡¢µ¯Ä»×ÀÃæÌáÊ¾¡¢Ò³ÃæÆ
 [bilibili ASS Danmaku Downloader](https://tiansh.github.io/danmaku/bilibili/)<br />
 ÒÔ ASS ¸ñÊ½ÏÂÔØ bilibili µÄµ¯Ä»
 
+[bilibili QR Code For Client](https://tiansh.github.io/us-blbl/bilibili_qr_code_for_client)<br />
+ÔÚÊÖ»úä¯ÀÀÆ÷ÖĞÉ¨Ãè bilibili ÍøÒ³ÉÏµÄ QR ÂëºóÊ¹ÓÃ¿Í»§¶Ë¶ø·Çä¯ÀÀÆ÷´ò¿ª¶ÔÓ¦ÊÓÆµ
