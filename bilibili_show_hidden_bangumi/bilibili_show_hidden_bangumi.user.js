@@ -162,8 +162,7 @@
     GM_xmlhttpRequest({
       'method': 'GET',
       'url': 'http://api.bilibili.com/list?pagesize=24&type=json&page=' + page +
-        '&ios=0&order=default&appkey=0a99fa1d87fdd38c&platform=ios&tid=33',
-      'headers': { 'User-Agent': 'bilianime/570 CFNetwork/672.0.8 Darwin/14.0.0' },
+        '&order=default&appkey=8e9fc618fbd41e28&tid=33',
       'onload': function (resp) {
         var respData, i;
         try {
